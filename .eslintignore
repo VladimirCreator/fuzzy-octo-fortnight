@@ -17,3 +17,5 @@
 # [ ](governance): CC-BY
 
 node_modules
+
+apps/pro/src/stories/**
