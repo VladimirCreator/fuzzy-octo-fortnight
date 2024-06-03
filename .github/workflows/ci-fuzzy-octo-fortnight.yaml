@@ -1,0 +1,98 @@
+# fuzzy-octo-fortnight ознакомление с предложениями по улучшению языка программирования Swift.
+# Copyright (C) 2024-present Vladimir Leonidovich
+#
+# This program is free software: you can redistribute
+# it and/or modify it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+# [ ](governance): CC-BY
+
+name: "CI: Fuzzy Octo Fortnight"
+env:
+  HUSKY: 0 # Read more [here](https://typicode.github.io/husky/how-to.html#ci-server-and-docker).
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - "**.md"
+      - "**.json"
+      - "**.yml"
+      - "**.yaml"
+      - "**.toml"
+      - ".gitignore"
+      - ".editorconfig"
+      - ".prettierignore"
+      - ".env.interface"
+      - "favicon.ico"
+      - "**.svg"
+      - "LICENSE"
+  pull_request:
+    branches:
+      - master
+    paths-ignore:
+      - "**.md"
+      - "**.json"
+      - "**.yml"
+      - "**.yaml"
+      - "**.toml"
+      - ".gitignore"
+      - ".editorconfig"
+      - ".prettierignore"
+      - ".env.interface"
+      - "favicon.ico"
+      - "**.svg"
+      - "LICENSE"
+jobs:
+  upload-repository-as-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/upload-artifact@v4
+  ci:
+    runs-on: ubuntu-latest
+    needs:
+      - upload-repository-as-artifact
+    steps:
+      - uses: actions/download-artifact@v4
+      - uses: actions/setup-node@v4
+        with:
+          cache: "npm"
+
+      - run: npm clean-install
+      - run: npx nx build pro # does lint, test, build by itself.
+      - run: mv _site/browser/* _site/ # [ ](refactor): I do not know why but artifact is generated in browser/ folder.
+
+      # MARK: ...
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          retention-days: 90
+  # FIXME
+  #check-if-broken-links-are-present:
+  #runs-on: ubuntu-latest
+  #needs: upload-repository-as-artifact
+  #steps:
+  #- uses: gaurav-nelson/github-action-markdown-link-check@v1
+
+  # FIXME
+  #spellcheck:
+  #runs-on: ubuntu-latest
+  #needs: upload-repository-as-artifact
+  #steps:
+  #- uses: rojopolis/spellcheck-github-actions@0.36.0
+  deployment:
+    needs:
+      - ci
+    uses: ./.github/workflows/github-pages.yaml
+    permissions:
+      id-token: write
+      pages: write

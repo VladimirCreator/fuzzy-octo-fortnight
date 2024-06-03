@@ -1,0 +1,59 @@
+/* fuzzy-octo-fortnight ознакомление с предложениями по улучшению языка программирования Swift.
+ * Copyright (C) 2024-present Vladimir Leonidovich
+ *
+ * This program is free software: you can redistribute
+ * it and/or modify it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+/* [ ](governance): CC-BY */
+
+{
+	// MARK: -Proposals
+	proposals: [
+		// GET /proposals
+		{
+			name: "0001-keywords-as-argument-labels.md",
+			size: 0,
+			download_url: "proposals/0001-keywords-as-argument-labels.md"
+		},
+		{
+			name: "0009-require-self-for-accessing-instance-members.md",
+			size: 0,
+			download_url: "proposals/0009-require-self-for-accessing-instance-members.md"
+		},
+		{
+			name: "0018-flexible-memberwise-initialization.md",
+			size: 0,
+			download_url: "proposals/0018-flexible-memberwise-initialization.md"
+		},
+		{
+			name: "0030-property-behavior-decls.md",
+			size: 0,
+			download_url: "proposals/0030-property-behavior-decls.md"
+		}
+	],
+
+	// MARK: -User
+	user: [
+		// GET /user
+		{
+			name: "Vladimir Leonidovich",
+			starredProposals: /* prettier-ignore */ [
+				1, 2, 7,
+				220, 244, 255, 279, 283, 289,
+				345, 354, 366, 377, 380, 382, 386, 389, 390, 393,
+				403, 409, 427, 435
+			]
+		}
+	]
+}

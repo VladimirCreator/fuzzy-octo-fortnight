@@ -1,0 +1,64 @@
+<!-- fuzzy-octo-fortnight ознакомление с предложениями по улучшению языка программирования Swift.
+	Copyright (C) 2024-present Vladimir Leonidovich
+
+	This program is free software: you can redistribute
+	it and/or modify it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<div class="tui-container tui-container_adaptive">
+	<!-- See header.component.html for more details. -->
+	<!-- MARK: -Main
+		[ ](feat): The following description should be changed whenever a language changes.
+	-->
+	<section>
+		<p>Swift is a <strong>general-purpose</strong> programming language that’s <strong>approachable</strong> for newcomers and <strong>powerful</strong> for experts.</p>
+		<p>It is <strong>fast</strong>, <strong>more</strong>, <strong>safe</strong>, and a <strong>joy</strong> to write.</p>
+	</section>
+
+	<!-- MARK: -Breadcrumbs -->
+	<!--<tui-breadcrumbs>
+	[ ](feat): make something
+		<nav>
+			<ol>
+				@for (breadcrumb of breadcrumbs; track breadcrumb) {
+					<li *tuiItem>
+						<a [routerLink]="breadcrumb.href" routerLinkActive='active'
+							tuiLink
+						>
+							{{breadcrumb.caption}}
+						</a>
+					</li>
+				}
+			</ol>
+		</nav>
+	</tui-breadcrumbs>-->
+
+	<!-- MARK: -List
+	<form [formGroup]="form">
+		<tui-input i18n>
+			Search… <input tuiTextfield />
+		</tui-input>
+		<tui-filter formControlName="filters" [items]="items" />
+	</form>
+	-->
+	<app-proposal-list />
+</div>
+
+<!-- MARK: -Notification
+-->
+<ng-template #notificationTemplate polymorpheus>
+	<aside>
+		<p i18n>Этот артефакт не имеет какого-либо бэкэнда, поэтому все данные находятся в локальном хранилище.</p>
+		<p i18n>Такое ограничение связано с тем, что GitHub Pages не предоставляют услуг по хостингу серверных приложений.</p>
+	</aside>
+</ng-template>

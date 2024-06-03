@@ -1,0 +1,69 @@
+<!-- fuzzy-octo-fortnight ознакомление с предложениями по улучшению языка программирования Swift.
+	Copyright (C) 2024-present Vladimir Leonidovich
+
+	This program is free software: you can redistribute
+	it and/or modify it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<tui-island>
+	<article>
+		<p class="tui-island__category">SE-{{ proposal.id }}</p>
+		<h1 class="tui-island__title">{{ proposal.name }}</h1>
+
+		<!--
+			<tui-line-clamp [content]='thatThing' [linesLimit]='3'>
+			</tui-line-clamp>
+			<ng-template #markdown></ng-template>
+		-->
+		<markdown>{{ proposal.markdown }}</markdown>
+
+		<!-- MARK: -Authors -->
+		<ol class="tui-avatar-stack tui-island__paragraph">
+			@for (author of proposal.authors; track author) {
+				<li title="{{ author }}">
+					<tui-avatar text="{{ author }}" auto-color="true" size="s" [tuiHint]="hint" />
+				</li>
+			} @empty {
+				<!-- It is strange if there are not any authors. -->
+				<li>The proposal does not have any authors.</li>
+			}
+		</ol>
+
+		<!-- MARK: -Topics -->
+		<ol>
+			@for (topic of proposal.topics; track topic) {
+				<li>
+					<tui-tag value="{{ topic }}" />
+				</li>
+			}
+			<!--@empty {
+				<li>The proposal does not have any topics.</li>
+			}-->
+		</ol>
+
+		<nav>
+			<ul>
+				<li>
+					<p class="tui-island__paragraph tui-island__paragraph_link">
+						<a [href]="proposal.name" tuiLink> Markdown </a>
+					</p>
+				</li>
+			</ul>
+		</nav>
+	</article>
+</tui-island>
+
+<ng-template #hint>
+	<p>WIP</p>
+	<!-- [ ](feat): name should be here -->
+</ng-template>
