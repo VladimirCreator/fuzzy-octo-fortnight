@@ -1,0 +1,16 @@
+{
+	"recommendations": /* prettier-ignore */ [
+		"EditorConfig.EditorConfig",
+		"angular.ng-template",
+		"nrwl.angular-console",
+		"Ph0enixKM.amber-language",
+
+		"Gruntfuggly.todo-tree",
+		"bierner.markdown-checkbox", "bierner.markdown-footnotes",
+		"bierner.markdown-mermaid",
+		"bierner.markdown-preview-github-styles",
+
+		"esbenp.prettier-vscode",
+		"github.vscode-github-actions"
+	]
+}

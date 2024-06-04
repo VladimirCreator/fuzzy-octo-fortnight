@@ -1,0 +1,58 @@
+// fuzzy-octo-fortnight ознакомление с предложениями по улучшению языка программирования Swift.
+// Copyright (C) 2024-present Vladimir Leonidovich
+//
+// This program is free software: you can redistribute
+// it and/or modify it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
+
+// MARK: -Dependencies
+// 	1. echo;
+// 	2. read;
+// 	3. curl.
+// 	4. jq.
+//
+
+// MARK: -Script
+main {
+	// MARK: -
+	unsafe let api = $echo \$ESB_API$ // The assumption is that if ESB_API is defined, we are in a CI environment. e.g. GitHub Actions
+
+	// The following block handles the 1st case.
+	if api == "" {
+		// There are 2 options if ESB_API is not defined:
+		// 	1) a contributor has just cloned the repository; - well, we can just ask for a value
+		// 	2) we are in a CI environment where ESB_API is not defined! - well, we are in trouble at this point!
+
+		// I should make sure that there is time out
+		// so CI environments do not consume compute hours for nothing.
+		unsafe $read -t 10 -p "ESB_API is: " ESB_API$
+		unsafe api = $echo \$ESB_API$ // [ ](refactor): this line is boilerplate
+	}
+
+	// The following block handles the 2nd case
+	// It actually also handles the 3rd case where a contributor does not provide a value for some reason.
+	if api == "" {
+		echo "ESB_API is not defined!"; fail 1
+	}
+
+	// MARK: -ESB_API is defined
+	// ESB_API is defined and we are good to go.
+	//let resp = $curl {api}$
+	//unsafe let response = $curl https://api.github.com/repos/apple/swift-evolution/contents/proposals/ -H "Accept: application/json"$ // [ ](bug): fix cases where an error occurs
+	let response = "[\{\"name\":\"goida\",\"download_url\":\"goida\",\"href\":\"goida\"},\{\"name\":\"goida-1\",\"download_url\":\"goida-2\",\"href\":\"goida-3\"}]"
+	//unsafe let proposals = $echo {response} | jq ".name | .download_url"$
+	unsafe let proposals = [$echo {response} | jq ".[].name"$]
+
+	loop ind, proposal in proposals {
+		echo "{ind} = {proposal}"
+	}
+}

@@ -1,0 +1,148 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "pro",
+	"projectType": "application",
+	"sourceRoot": "apps/pro/src",
+	"prefix": "app",
+	"targets": {
+		"develop": {
+			"executor": "@nx/angular:dev-server",
+			"options": {
+				"buildTarget": "pro:build:development"
+			}
+		},
+		"lint": {
+			"executor": "@nx/eslint:lint",
+			"options": {}
+		},
+		"test": {
+			"executor": "@angular-devkit/build-angular:karma",
+			"options": {
+				"tsConfig": "apps/pro/tsconfig.spec.json",
+				"karmaConfig": "karma.conf.js",
+				"assets": ["apps/pro/src/favicon.ico", "apps/pro/src/assets"],
+				"styles": [
+					"apps/pro/src/styles.less"
+				],
+				"scripts": [],
+				"inlineStyleLanguage": "scss",
+				"polyfills": ["zone.js", "zone.js/testing"]
+			}
+		},
+		"build": {
+			"executor": "@nx/angular:application",
+			"options": {
+				"baseHref": "./",
+				"tsConfig": "apps/pro/tsconfig.app.json",
+				"outputPath": "_site",
+				"index": "apps/pro/src/index.html",
+				"indexHtmlTransformer": "apps/pro/src/index.html-transformer.ts",
+				"assets": [
+					{
+						"glob": "**/*",
+						"input": "node_modules/@taiga-ui/icons/src",
+						"output": "assets/taiga-ui/icons"
+					},
+					{
+						"glob": "!(coverage|proposals|storybook-static)",
+						"input": "apps/pro/src/assets",
+						"output": "assets/"
+					},
+					{
+						"glob": "*(coverage|storybook-static)/*",
+						"input": "apps/pro/src/assets",
+						"output": ".",
+						"followSymlinks": true
+					},
+					{
+						"glob": "proposals/*.md",
+						"input": "apps/pro/src/assets",
+						"output": "."
+					},
+					"apps/pro/src/favicon.ico"
+				],
+				"styles": [
+					"node_modules/normalize.css/normalize.css",
+					"node_modules/prismjs/themes/prism-okaidia.css",
+					"node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+					"apps/pro/src/styles.less"
+				],
+				"scripts": [
+					"node_modules/prismjs/prism.js",
+					"node_modules/prismjs/components/prism-swift.min.js",
+					"node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+				],
+				"plugins": ["node_modules/esbuild-plugin-env/cjs.cjs"],
+				"inlineStyleLanguage": "scss",
+				"polyfills": ["zone.js"],
+				"server": "apps/pro/src/main.server.ts",
+				"browser": "apps/pro/src/main.ts",
+				"ssr": false,
+				"prerender": true
+			},
+			"defaultConfiguration": "production",
+			"configurations": {
+				"production": {
+					"budgets": [
+						{
+							"type": "initial",
+							"maximumWarning": "500kb",
+							"maximumError": "1mb"
+						},
+						{
+							"type": "anyComponentStyle",
+							"maximumWarning": "2kb",
+							"maximumError": "4kb"
+						}
+					],
+					"outputHashing": "all"
+				},
+				"development": {
+					"optimization": false,
+					"sourceMap": true,
+					"extractLicenses": false
+				}
+			}
+		},
+		"storybook": {
+			"executor": "@storybook/angular:start-storybook",
+			"options": {
+				"configDir": ".storybook",
+				"browserTarget": "pro:build",
+				"port": 6006,
+				"compodoc": true,
+				"compodocArgs": ["-e", "json", "-d", "."]
+			}
+		},
+		"extract-i18n": {
+			"executor": "@angular-devkit/build-angular:extract-i18n",
+			"options": {
+				"buildTarget": "pro:build"
+			}
+		},
+		"build-storybook": {
+			"executor": "@storybook/angular:build-storybook",
+			"options": {
+				"configDir": ".storybook",
+				"browserTarget": "pro:build",
+				"compodoc": true,
+				"compodocArgs": ["-e", "json", "-d", "."],
+				"outputDir": "storybook-static"
+			}
+		}
+	},
+	"i18n": {
+		"sourceLocale": "en-US",
+		"locales": {
+			"ru-RU": {
+				"baseHref": "",
+				"translation": "src/locale/.ru-RU.xlf"
+			}
+		}
+	},
+	"generators": {
+		"@schematics/angular:component": {
+			"style": "scss"
+		}
+	}
+}

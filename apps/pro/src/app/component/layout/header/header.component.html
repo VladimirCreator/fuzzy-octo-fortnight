@@ -1,0 +1,82 @@
+<!-- fuzzy-octo-fortnight ознакомление с предложениями по улучшению языка программирования Swift.
+	Copyright (C) 2024-present Vladimir Leonidovich
+
+	This program is free software: you can redistribute
+	it and/or modify it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!-- MARK: -Header
+-->
+<header>
+	<!-- [ ](refactor): the problem is that the following divs classes are duplicated in root.component.html and footer.component.html. Is it event a problem though? -->
+	<div class="tui-container tui-container_adaptive">
+		<!-- MARK:- . -->
+		<div hidden>
+			<img alt="Logo" title="" i18n-alt i18n-title width="25" height="25" src="/assets/icon_angular.svg" />
+			<h1>Vladimir</h1>
+			<p>{{ version }}</p>
+
+			<ol>
+				<li>
+					<a href="https://boosty.to/vladimircreator/donate/" target="_blank">
+						<img alt="Logo" title="" i18n-alt i18n-title width="25" height="25" src="/assets/icon_boosty.svg" />
+					</a>
+				</li>
+				<li>
+					<a href="https://www.donationalerts.com/r/vladimirleonidovich/" target="_blank">
+						<img alt="Logo" title="" i18n-alt i18n-title width="25" height="25" src="/assets/icon_boosty.svg" />
+					</a>
+				</li>
+			</ol>
+		</div>
+
+		<!-- MARK: Navigation -->
+		<nav class="tui-row">
+			<ol>
+				<tui-items-with-more [required]="2">
+					<li>
+						<a appearance="outline" class="tui-space_horizontal-1" *tuiItem target="_blank" href="https://www.donationalerts.com/r/vladimirleonidovich/" i18n tuiButton icon="tuiIconHeart"> Sponsor </a>
+					</li>
+					<li>
+						<a appearance="outline" class="tui-space_horizontal-1" *tuiItem [href]="repositoryUrl" target="_blank" i18n tuiButton icon="tuiIconGithub"> Repository </a>
+					</li>
+					<li>
+						<a appearance="outline" class="tui-space_horizontal-1" *tuiItem href="/api" target="_blank" i18n tuiButton icon="tuiIconBookOpen"> Documentation </a>
+					</li>
+					<li>
+						<a appearance="outline" class="tui-space_horizontal-1" *tuiItem href="/coverage" i18n tuiButton icon="tuiIconActivity"> Coverage </a>
+					</li>
+					<li>
+						<!-- FIXME: Storybook does not work yet. -->
+						<a appearance="outline" class="tui-space_horizontal-1" *tuiItem routerLink="/storybook-static" routerLinkActive="active" i18n tuiButton icon="tuiIconBook"> Storybook </a>
+					</li>
+					<ng-template tuiMore>
+						<p>WIP</p>
+					</ng-template>
+				</tui-items-with-more>
+			</ol>
+
+			<!-- MARK: Dashboard -->
+			<button type="button" tuiIconButton appearance="accent" [icon]="profile" (click)="revealDashboard(true)" (tuiActiveZoneChange)="revealDashboard($event)">
+				<!-- [ ](refactor): I do not want button to be inside nav but... -->
+				<app-dashboard *tuiSidebar="isDashboardRevealed; direction: 'right'" />
+			</button>
+		</nav>
+	</div>
+</header>
+
+<!-- MARK: User’s Icon -->
+<ng-template #profile>
+	<!--[avatarUrl]="avatarUrl"-->
+	<tui-avatar fallback="tuiIconUser" size="xxs" [rounded]="true" />
+</ng-template>

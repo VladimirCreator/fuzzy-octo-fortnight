@@ -1,0 +1,58 @@
+<!-- fuzzy-octo-fortnight ознакомление с предложениями по улучшению языка программирования Swift.
+	Copyright (C) 2024-present Vladimir Leonidovich
+
+	This program is free software: you can redistribute
+	it and/or modify it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program. If not, see <https://www.gnu.org/licenses/>.
+-->
+
+<!--@if (starred$ | async; as starred) {-->
+<section class="tui-row">
+	<div class="tui-container tui-col_11">
+		<!-- MARK: -... -->
+		<section>
+			<tui-avatar class="tui-container" [text]="user.name" />
+			<p i18n>
+				Welcome back,
+				<strong>{{ user.name }}</strong>
+				Programmer
+			</p>
+		</section>
+
+		<section>
+			<ol>
+				<!--<li i18n>{{starred.length}} Понравившиеся предложениям</li>-->
+			</ol>
+		</section>
+
+		<!-- MARK: -... -->
+		<h2 i18n>Starred Proposals</h2>
+		<section class="tui-row" tuiCarouselButtons>
+			<!-- justify-content: center -->
+			<button type="button" tuiIconButton icon="tuiIconChevronLeft" size="s" (click)="carousel.prev()"></button>
+			<ol>
+				<tui-carousel #carousel>
+					@for (proposal of starred$ | async; track proposal.id) {
+						<app-proposal [proposal]="proposal" *tuiItem />
+					} @empty {
+						<li i18n>You do not have starred repositories.</li>
+					}
+				</tui-carousel>
+			</ol>
+			<button type="button" tuiIconButton icon="tuiIconChevronRight" size="s" (click)="carousel.next()"></button>
+		</section>
+
+		<!-- MARK: -... -->
+		<p i18n>All proposals are provided by <a target="_blank" href="{{ api }}" tuiLink>the following api</a>.</p>
+	</div>
+</section>
+<!--}-->
