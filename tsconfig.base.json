@@ -19,13 +19,6 @@
 
 {
 	"exclude": ["node_modules", "tmp"],
-	"angularCompilerOptions": {
-		"enableI18nLegacyMessageIdFormat": false,
-		"strictInjectionParameters": true,
-		"strictInputAccessModifiers": true,
-		"strictTemplates": true
-	},
-	"compileOnSave": false,
 	"compilerOptions": {
 		"baseUrl": ".",
 		"declaration": false,
@@ -51,5 +44,12 @@
 		"strict": true,
 		"target": "ES2022",
 		"useDefineForClassFields": false
-	}
+	},
+	"angularCompilerOptions": {
+		"enableI18nLegacyMessageIdFormat": false,
+		"strictInjectionParameters": true,
+		"strictInputAccessModifiers": true,
+		"strictTemplates": true
+	},
+	"compileOnSave": false
 }

@@ -31,8 +31,6 @@ import {
 
 // #region -Vladimir’s Library
 
-import { dependency } from "utilities"
-
 // MARK: Components
 import { HeaderComponent, FooterComponent } from "./component"
 

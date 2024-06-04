@@ -165,6 +165,7 @@ export class RootComponent implements OnInit {
 			label: "Режим GitHub Pages"
 		} as const // [ ](refactor): provide more appropriate type for the object
 
+		// prettier-ignore
 		this.#alerts
 			.open(this.notificationTemplate, options)
 			.subscribe()

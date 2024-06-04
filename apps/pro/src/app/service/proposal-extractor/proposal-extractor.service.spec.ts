@@ -17,12 +17,10 @@
 
 // #region -Dependencies
 
-// MARK:- Core
+// MARK: Angular
 import { TestBed } from "@angular/core/testing"
 
 // MARK: -Testee
-
-// MARK:- Services
 import { ProposalExtractorService } from "./proposal-extractor.service"
 
 // MARK:- ...

@@ -67,8 +67,7 @@ export default (initialHtml: string): string => {
 	const transformedHtml = initialHtml.replace(target, value)
 	if (initialHtml === transformedHtml) {
 		console.warn("ESB_TITLE is not used!")
-	}
-	else {
+	} else {
 		console.log("ESB_TITLE is used!")
 	}
 	return transformedHtml

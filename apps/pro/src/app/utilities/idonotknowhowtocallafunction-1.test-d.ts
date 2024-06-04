@@ -17,8 +17,6 @@
 
 // #region -Dependencies
 
-
-
 // #endregion
 
 // MARK: -Testee
@@ -27,8 +25,6 @@ import { property } from "./idonotknowhowtocallafunction-1"
 // MARK: -Test Suite
 xdescribe("idonotknowhowtocallafunction-1.test-d.ts", () => {
 	// MARK: Setup
-
 	// MARK: Teardown
-
 	// MARK: Test 1
 })

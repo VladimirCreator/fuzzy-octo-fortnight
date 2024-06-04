@@ -17,21 +17,19 @@
 
 // #region -Dependencies
 
-// MARK:- Core
+// MARK: Angular
 import { TestBed, ComponentFixture } from "@angular/core/testing"
 
 // #endregion
 
 // MARK: -Testee
-
-// MARK:- Components
 import { ProposalListComponent } from "./proposal-list.component"
 
-// MARK: -Suite
+// MARK: -Test Suite
 xdescribe("proposal-list.component.spec.ts", () => {
 	/** Testee.
 	 *
-	 * @author V
+	 * @author Vladimir Leonidovich
 	 *
 	 * @version 0.1.0
 	 * @since 0.1.0

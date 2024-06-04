@@ -17,19 +17,17 @@
 
 // #region -Dependencies
 
-// MARK:- Core
+// MARK: Angular
 import { TestBed, ComponentFixture } from "@angular/core/testing"
 
 // MARK: -Testee
-
-// MARK:- Components
 import { PageNotFoundComponent } from "./page-not-found.component"
 
 // MARK: Test Suit
 xdescribe("page-not-found.component.spec.ts", () => {
 	/** Testee.
 	 *
-	 * @author V
+	 * @author Vladimir Leonidovich
 	 *
 	 * @version 0.1.0
 	 * @since 0.1.0

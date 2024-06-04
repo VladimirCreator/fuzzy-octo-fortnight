@@ -17,18 +17,17 @@
 
 // #region -Dependencies
 
-// MARK:- Core
+// MARK: Angular
 import { TestBed } from "@angular/core/testing"
 
 // #endregion
 
 // MARK: -Testee
-
-// MARK:- Components
 import { ApplicationComponent } from "./app.component"
 
 // #region -Testee’s Dependencies
 
+// MARK: Tokens
 import { APPLICATION_CONFIGURATION } from "./token/configuration.token"
 
 // #endregion
@@ -43,11 +42,11 @@ xdescribe("app.component.spec.ts", () => {
 				{
 					provide: APPLICATION_CONFIGURATION,
 					useValue: {
-						name: "V",
-						avatarUrl: "f",
-						repository: "as",
-						version: "0.1.0",
-						api: "a"
+						version: "",
+						name: "",
+						avatarUrl: "",
+						api: "",
+						repositoryUrl: ""
 					}
 				}
 			]
@@ -58,8 +57,11 @@ xdescribe("app.component.spec.ts", () => {
 
 	/// MARK: Test 1
 	it("is instantiable", () => {
+		// Arrange
 		const fixture = TestBed.createComponent(ApplicationComponent)
 		const app = fixture.componentInstance
+
+		// Assert
 		expect(app).toBeTruthy()
 	})
 })

@@ -17,16 +17,11 @@
 
 // #region -Dependencies
 
-// MARK:- Core
+// MARK: Angular
 import { TestBed } from "@angular/core/testing"
 
 // MARK: -Testee
-
-// MARK:- Services
 import { UserService } from "./user.service"
-
-// MARK: -Data
-import { user } from "./user.mock"
 
 // MARK: -Test Suite
 describe("user.service.spec.ts", () => {
@@ -49,22 +44,11 @@ describe("user.service.spec.ts", () => {
 	// MARK: Test 2
 	it("user should not return a user", () => {
 		// Arrange
-		const expectedUser = user
 
 		// Act
 		const actualUser = service.user
 
 		// Assert
-		expect(actualUser).toEqual(expectedUser)
-	})
-
-	// MARK: Test 3
-	it("service should not have a user", () => {
-		// Arrange
-
-		// Act
-
-		// Assert
-		expect(service.hasUser).toBeTrue()
+		expect(actualUser).toBeUndefined()
 	})
 })

@@ -35,7 +35,7 @@ import { ProposalService } from "../../service"
 // MARK: -Public API reference documentation
 /** `ProposalDetailComponent` is responsible .
  *
- * @author V
+ * @author Vladimir Leonidovich
  *
  * @version 0.1.0
  * @since 0.1.0
@@ -61,7 +61,7 @@ import { ProposalService } from "../../service"
 export class ProposalDetailComponent {
 	// #region Properties
 
-	readonly #s = inject(ProposalService)
+	readonly #proposals = inject(ProposalService)
 
 	// #endregion
 
@@ -69,7 +69,7 @@ export class ProposalDetailComponent {
 
 	@Input()
 	public set name(name: string) {
-		this.#s.proposals$
+		this.#proposals.proposals$
 	}
 
 	// #endregion

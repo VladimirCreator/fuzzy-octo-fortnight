@@ -176,6 +176,7 @@ export class ProposalService implements IProposalService {
 		}
 		return this.proposals$.pipe(
 			concatAll(),
+			// prettier-ignore
 			filter(proposal => (user.starredProposals as readonly number[]/* [ ](refactor): the assertion is a crutch here. there is a more elegant way to solve the type error :'( */).includes(proposal.id)),
 			toArray()
 		)

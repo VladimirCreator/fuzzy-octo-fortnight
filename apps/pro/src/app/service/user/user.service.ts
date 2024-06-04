@@ -89,12 +89,7 @@ export class UserService {
 		// [ ](feat): it will be implemented in future versions
 		return {
 			name: "Vladimir Leonidovich",
-			starredProposals: [
-				1, 2, 7,
-				220, 244, 255, 279, 283, 289,
-				345, 354, 366, 377, 380, 382, 386, 389, 390, 393,
-				403, 409, 427, 435
-			]
+			starredProposals: [1, 2, 7, 220, 244, 255, 279, 283, 289, 345, 354, 366, 377, 380, 382, 386, 389, 390, 393, 403, 409, 427, 435]
 		} as const
 	}
 

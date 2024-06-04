@@ -39,11 +39,6 @@
 			}
 		},
 		{
-			"extends": ["plugin:@nx/javascript"],
-			"files": ["*.js"],
-			"rules": {}
-		},
-		{
 			"extends": ["plugin:@nx/typescript"],
 			"files": ["*.ts"],
 			"rules": {
@@ -58,7 +53,7 @@
 			}
 		},
 		{
-			"files": ["*.spec.js", "*.spec.ts"],
+			"files": ["*.spec.ts"],
 			"rules": {},
 			"env": {
 				"jest": true

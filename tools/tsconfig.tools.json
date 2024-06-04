@@ -15,17 +15,17 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
- /* [ ](governance): CC-BY */
+/* [ ](governance): CC-BY */
 
 {
 	"extends": "../tsconfig.base.json",
 	"include": ["**/*.ts"],
 	"compilerOptions": {
-		"rootDir": ".",
-		"outDir": "../dist/out-tsc/tools",
+		"importHelpers": false,
 		"module": "commonjs",
+		"outDir": "../dist/out-tsc/tools",
+		"rootDir": ".",
 		"target": "es5",
-		"types": ["node"],
-		"importHelpers": false
+		"types": ["node"]
 	}
 }

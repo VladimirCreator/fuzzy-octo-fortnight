@@ -19,7 +19,6 @@
 
 // MARK: Angular
 import { Component } from "@angular/core"
-import { RouterLink, RouterLinkActive } from "@angular/router"
 
 // #endregion
 
@@ -36,10 +35,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router"
 @Component(/* prettier-ignore */ {
 	standalone: true,
 	selector: 'app-page-not-found',
-	templateUrl: './page-not-found.component.html', styleUrl: './page-not-found.component.less',
-	imports: [
-		RouterLink, RouterLinkActive
-	]
+	templateUrl: './page-not-found.component.html', styleUrl: './page-not-found.component.less'
 })
 export class PageNotFoundComponent {
 	// #region Properties

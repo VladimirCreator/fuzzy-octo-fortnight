@@ -19,7 +19,7 @@
 
 {
 	"extends": "./tsconfig.json",
-	"files": ["./typings.d.ts"],
 	"include": ["../apps/pro/**/*"],
 	"exclude": ["../src/test.ts", "../src/**/*.spec.ts", "../src/**/*.stories.ts"],
+	"files": ["./typings.d.ts"]
 }

@@ -17,12 +17,10 @@
 
 // #region -Dependencies
 
-// MARK:- Core
+// MARK: Angular
 import { TestBed, ComponentFixture } from "@angular/core/testing"
 
 // MARK: -Testee
-
-// MARK:- Components
 import { ProposalDetailComponent } from "./proposal-detail.component"
 
 // MARK: -`ProposalDetailComponent`

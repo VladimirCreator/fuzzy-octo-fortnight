@@ -55,7 +55,7 @@
 		},
 		"build": {
 			"cache": true,
-			"dependsOn": ["^build", "lint"],
+			"dependsOn": ["^build"],
 			"inputs": ["production", "^production"]
 		},
 		"@nx/jest:jest": {

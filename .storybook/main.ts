@@ -27,8 +27,6 @@ import type { StorybookConfig } from "@storybook/angular"
 // MARK: -Configuration
 export default /* prettier-ignore */ {
 	stories: [
-		'../apps/pro/**/*.stories.@(ts|tsx)',
-		'../apps/pro/**/*.mdx'
 	],
 	framework: {
 		name: "@storybook/angular",
