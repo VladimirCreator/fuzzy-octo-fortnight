@@ -26,8 +26,6 @@ on:
     paths-ignore:
       - "**.md"
       - "**.json"
-      - "**.yml"
-      - "**.yaml"
       - "**.toml"
       - ".gitignore"
       - ".editorconfig"
@@ -42,8 +40,6 @@ on:
     paths-ignore:
       - "**.md"
       - "**.json"
-      - "**.yml"
-      - "**.yaml"
       - "**.toml"
       - ".gitignore"
       - ".editorconfig"
@@ -75,6 +71,10 @@ jobs:
 
       - run: npm clean-install
       - run: npx nx build pro # does lint, test, build by itself.
+        env:
+          ESB_ATTACHMENTS: ${{vars.ESB_ATTACHMENTS}}
+          ESB_CONFIGURATION: ${{vars.ESB_CONFIGURATION}}
+          ESB_TITLE: ${{vars.ESB_TITLE}}
       - run: mv _site/browser/* _site/ # [ ](refactor): I do not know why but artifact is generated in browser/ folder.
 
       # MARK: ...
