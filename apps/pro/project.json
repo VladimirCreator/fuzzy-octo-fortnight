@@ -32,6 +32,7 @@
 		"build": {
 			"executor": "@nx/angular:application",
 			"options": {
+				"baseHref": "./",
 				"tsConfig": "apps/pro/tsconfig.app.json",
 				"outputPath": "_site",
 				"index": "apps/pro/src/index.html",
